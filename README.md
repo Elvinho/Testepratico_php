@@ -2,11 +2,17 @@
 
 ## Menu Inicial
 ### Listagem e cadastro de clientes, com os seguintes campos:
+
  Código de identificação do cliente
+ 
  Nome
+ 
  CPF
+ 
  Endereço Completo (CEP, Logradouro, Número, Bairro, Complemento, Cidade)
+ 
  E-Mail
+ 
  Data de Nascimento
 
 ### Listagem e cadastro de produtos
