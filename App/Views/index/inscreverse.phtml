@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 36rem;">
+      <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+          <img src="/img/cli.png" width="50px"/>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h2>Cadastro Clientes</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+            <form action="/registrar" method="post">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                      <input type="text" class="form-control" value="<?php echo $this->view->cliente['nome']; ?>" name="nome" placeholder="Nome">
+                  </div>
+                </div>
+              </div>  
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <input type="text" class="form-control" value="<?php echo $this->view->cliente['cpf']; ?>" name="cpf" placeholder="CPF">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" class="form-control input-sm campo-data" value="<?php echo $this->view->cliente['data_nascimento']; ?>" name="data_nascimento" placeholder="Data Nasc.">
+                      <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+              </div>        
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<?php echo $this->view->cliente['endereco']; ?>" name="endereco" placeholder="Endereço">
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <input type="text" class="form-control" value="<?php echo $this->view->cliente['email']; ?>" name="email" placeholder="E-mail">
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+              <?php
+                if($this->view->erroCadastro)
+                {
+                  ?>
+                    <small class="form-text text-danger">*Erro ao tentar realizar o cadastro, verifique se os campos foram preenchidos corretamente.</small>
+                  <?php
+                }
+              ?>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    
+  

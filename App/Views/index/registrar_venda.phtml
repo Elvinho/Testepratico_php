@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 36rem;">
+      <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+          <img src="/img/cad_pro.png" width="75px"/>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h2>Registrar Venda</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <form action="/registrar_venda" method="post">
+                  <div class="col-md-6">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for=""><b>Produto</b></label>
+                                <select class="form-control select2 select2-hidden-accessible" name="codigo_produto" data-allow-clear="true">
+                                    <?php
+
+                                     use App\Connection;
+                                     use MF\Model;
+                                     $conn = new \PDO;
+                                      $stmt = $conn->prepare("SELECT id, descricao FROM tb_produtos");
+                                      $stmt->execute();
+                                    
+                                      if($stmt->rowCount() > 0)
+                                      {
+                                        while($dados = $stmt->fetch(PDO::FETCH_ASSOC))
+                                        {
+                                          echo "<option value =".$dados['id']." >".$dados['descricao']."</option>";
+                                        }
+                                      }
+                                  
+                                    ?>
+                                </select>
+                          </div>
+                      </div>
+                  </div>
+                <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for=""><b>quantidade</b></label>
+                      <input type="text" class="form-control" value="<?php echo $this->view->venda['quantidade']; ?>" name="quantidade">
+                  </div>
+                </div>
+              </div>  
+              <div class="row">
+                <div class="col-md-6">
+                    <label for=""><b>Cliente</b></label>
+                      <select class="form-control select2 select2-hidden-accessible" name="codigo_cliente" data-allow-clear="true">
+                        <?php
+                            $stmt = $conn->prepare("SELECT * FROM clientes");
+                            $stmt->execute();
+  
+                            if($stmt->rowCount() > 0)
+                            {
+                                while($dados = $stmt->fetch(PDO::FETCH_ASSOC))
+                                {
+                                  echo '<option value ='.$dados['codigo_cliente'].' >'.$dados['nome'].'</option>';
+                                }
+                            }
+                            else
+                            {
+                              echo '<option value ='.$this->view->venda['codigo_cliente'].'>'.$this->view->venda['nome'].'</option>';
+                            }
+                        ?>
+                      </select>                   
+                </div>
+              </div>
+              <br>      
+              <button type="submit" class="btn btn-primary btn-block">Registrar Venda</button>
+              <?php
+                if($this->view->erroCadastro)
+                {
+                  ?>
+                    <small class="form-text text-danger">*Erro ao tentar realizar venda, verifique se os campos foram preenchidos corretamente.</small>
+                  <?php
+                }
+              ?>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    
+  

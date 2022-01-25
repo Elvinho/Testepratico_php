@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 36rem;">
+      <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+          <img src="/img/cad_pro.png" width="75px"/>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h2>Cadastro Produtos</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+            <form action="/registrar_produtos" method="post">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for=""><b>Descrição</b></label>
+                      <input type="text" class="form-control" value="<?php echo $this->view->produto['descricao']; ?>" name="descricao" placeholder="Maq. de Lavar">
+                  </div>
+                </div>
+              </div>  
+              <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for=""><b>Valor</b></label>
+                      <input type="text" class="form-control moeda input-sm " value="<?php echo $this->view->produto['preco']; ?>" name="valor" data-thousands="." data-decimal="," placeholder="0,00">
+                  </div>
+                </div>
+              </div>  
+              <br>      
+              <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+              <?php
+                if($this->view->erroCadastro)
+                {
+                  ?>
+                    <small class="form-text text-danger">*Erro ao tentar realizar o cadastro, verifique se os campos foram preenchidos corretamente.</small>
+                  <?php
+                }
+              ?>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    
+  
