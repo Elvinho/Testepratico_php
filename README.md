@@ -33,3 +33,16 @@
  Identificação dos itens da venda (Produtos)
  
  Total da venda
+ 
+ #RODANDO O CÓDIGO
+ 
+ - Abrir o Xampp
+ - Rodar Servidor Apache
+ - Rodar Servidor Mysql
+
+Acessar pasta do projeto via cmd
+
+acessar a pasta public e rodar o comando:
+
+php -S localhost:8080
+ 
