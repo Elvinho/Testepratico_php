@@ -34,7 +34,7 @@
  
  Total da venda
  
- #RODANDO O CÓDIGO
+ # RODANDO O CÓDIGO
  
  - Abrir o Xampp
  - Rodar Servidor Apache
